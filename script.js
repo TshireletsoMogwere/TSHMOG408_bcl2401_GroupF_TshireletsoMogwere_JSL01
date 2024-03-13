@@ -1,24 +1,19 @@
+
 function validateSyntax() {
+    // Get the value of the input field with ID 'petInput'
     let input = document.getElementById('petInput').value;
-    let result = ''; // Placeholder for validation result
-    
-    // Regular expression pattern to match
-    let pattern = /^pet_\d+[a-zA-Z]+$/;
 
-    // Check if input matches the pattern
-    if (pattern.test(input)) {
-        result = 'Valid Syntax 🟢'; // Set result to 'Valid Syntax' if input matches the pattern
-    } else {
-        result = 'Invalid Syntax 🔴'; // Set result to 'Invalid Syntax' if input doesn't match the pattern
-    }
+    // Define placeholders for validation results
+    const result1 = 'Valid Syntax 🟢'; // Indicates valid syntax
+    const result2 = 'Invalid Syntax 🔴'; // Indicates invalid syntax
 
-    // Update the result text content
-    let resultElement = document.getElementById('result');
-    if (resultElement) { // Check if the result element exists
-        resultElement.innerText = result; // Update the text content of the result element
+    // Regular expression pattern to validate input
+    if (/^pet_\d{4}\S+$/.test(input)) {
+        // If input matches the pattern, set the result as 'Valid Syntax 🟢'
+        document.getElementById('result').innerText = result1;
     } else {
-        console.error("Result element not found!"); // Log an error if the result element is not found
+        // If input doesn't match the pattern, set the result as 'Invalid Syntax 🔴'
+        document.getElementById('result').innerText = result2;
     }
 }
-
-
+    
